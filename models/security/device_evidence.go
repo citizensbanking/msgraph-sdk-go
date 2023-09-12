@@ -9,11 +9,13 @@ import (
 type DeviceEvidence struct {
     AlertEvidence
 }
-// NewDeviceEvidence instantiates a new DeviceEvidence and sets the default values.
+// NewDeviceEvidence instantiates a new deviceEvidence and sets the default values.
 func NewDeviceEvidence()(*DeviceEvidence) {
     m := &DeviceEvidence{
         AlertEvidence: *NewAlertEvidence(),
     }
+    odataTypeValue := "#microsoft.graph.security.deviceEvidence"
+    m.SetOdataType(&odataTypeValue)
     return m
 }
 // CreateDeviceEvidenceFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
@@ -252,7 +254,7 @@ func (m *DeviceEvidence) GetHealthStatus()(*DeviceHealthStatus) {
     }
     return nil
 }
-// GetIpInterfaces gets the ipInterfaces property value. The ipInterfaces property
+// GetIpInterfaces gets the ipInterfaces property value. Ip interfaces of the device during the time of the alert.
 func (m *DeviceEvidence) GetIpInterfaces()([]string) {
     val, err := m.GetBackingStore().Get("ipInterfaces")
     if err != nil {
@@ -522,7 +524,7 @@ func (m *DeviceEvidence) SetHealthStatus(value *DeviceHealthStatus)() {
         panic(err)
     }
 }
-// SetIpInterfaces sets the ipInterfaces property value. The ipInterfaces property
+// SetIpInterfaces sets the ipInterfaces property value. Ip interfaces of the device during the time of the alert.
 func (m *DeviceEvidence) SetIpInterfaces(value []string)() {
     err := m.GetBackingStore().Set("ipInterfaces", value)
     if err != nil {

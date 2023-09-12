@@ -33,7 +33,7 @@ func NewManagedEBooksItemAssignRequestBuilder(rawUrl string, requestAdapter i2ae
 // Post not yet documented
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-books-managedebook-assign?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-books-managedebook-assign?view=graph-rest-1.0
 func (m *ManagedEBooksItemAssignRequestBuilder) Post(ctx context.Context, body ManagedEBooksItemAssignPostRequestBodyable, requestConfiguration *ManagedEBooksItemAssignRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -64,4 +64,8 @@ func (m *ManagedEBooksItemAssignRequestBuilder) ToPostRequestInformation(ctx con
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ManagedEBooksItemAssignRequestBuilder) WithUrl(rawUrl string)(*ManagedEBooksItemAssignRequestBuilder) {
+    return NewManagedEBooksItemAssignRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

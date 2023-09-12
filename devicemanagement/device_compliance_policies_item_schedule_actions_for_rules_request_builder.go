@@ -33,7 +33,7 @@ func NewDeviceCompliancePoliciesItemScheduleActionsForRulesRequestBuilder(rawUrl
 // Post not yet documented
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicy-scheduleactionsforrules?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicy-scheduleactionsforrules?view=graph-rest-1.0
 func (m *DeviceCompliancePoliciesItemScheduleActionsForRulesRequestBuilder) Post(ctx context.Context, body DeviceCompliancePoliciesItemScheduleActionsForRulesPostRequestBodyable, requestConfiguration *DeviceCompliancePoliciesItemScheduleActionsForRulesRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -64,4 +64,8 @@ func (m *DeviceCompliancePoliciesItemScheduleActionsForRulesRequestBuilder) ToPo
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *DeviceCompliancePoliciesItemScheduleActionsForRulesRequestBuilder) WithUrl(rawUrl string)(*DeviceCompliancePoliciesItemScheduleActionsForRulesRequestBuilder) {
+    return NewDeviceCompliancePoliciesItemScheduleActionsForRulesRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

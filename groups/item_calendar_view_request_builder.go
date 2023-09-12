@@ -74,7 +74,7 @@ func (m *ItemCalendarViewRequestBuilder) Delta()(*ItemCalendarViewDeltaRequestBu
 // Get the calendar view for the calendar. Read-only.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/group-list-calendarview?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/group-list-calendarview?view=graph-rest-1.0
 func (m *ItemCalendarViewRequestBuilder) Get(ctx context.Context, requestConfiguration *ItemCalendarViewRequestBuilderGetRequestConfiguration)(iadcd81124412c61e647227ecfc4449d8bba17de0380ddda76f641a29edf2b242.EventCollectionResponseable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
@@ -108,4 +108,8 @@ func (m *ItemCalendarViewRequestBuilder) ToGetRequestInformation(ctx context.Con
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemCalendarViewRequestBuilder) WithUrl(rawUrl string)(*ItemCalendarViewRequestBuilder) {
+    return NewItemCalendarViewRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

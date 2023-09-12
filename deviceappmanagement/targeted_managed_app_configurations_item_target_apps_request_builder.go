@@ -33,7 +33,7 @@ func NewTargetedManagedAppConfigurationsItemTargetAppsRequestBuilder(rawUrl stri
 // Post not yet documented
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-targetapps?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappconfiguration-targetapps?view=graph-rest-1.0
 func (m *TargetedManagedAppConfigurationsItemTargetAppsRequestBuilder) Post(ctx context.Context, body TargetedManagedAppConfigurationsItemTargetAppsPostRequestBodyable, requestConfiguration *TargetedManagedAppConfigurationsItemTargetAppsRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -64,4 +64,8 @@ func (m *TargetedManagedAppConfigurationsItemTargetAppsRequestBuilder) ToPostReq
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *TargetedManagedAppConfigurationsItemTargetAppsRequestBuilder) WithUrl(rawUrl string)(*TargetedManagedAppConfigurationsItemTargetAppsRequestBuilder) {
+    return NewTargetedManagedAppConfigurationsItemTargetAppsRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

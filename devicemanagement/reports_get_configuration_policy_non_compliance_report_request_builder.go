@@ -33,7 +33,7 @@ func NewReportsGetConfigurationPolicyNonComplianceReportRequestBuilder(rawUrl st
 // Post not yet documented
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getconfigurationpolicynoncompliancereport?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getconfigurationpolicynoncompliancereport?view=graph-rest-1.0
 func (m *ReportsGetConfigurationPolicyNonComplianceReportRequestBuilder) Post(ctx context.Context, body ReportsGetConfigurationPolicyNonComplianceReportPostRequestBodyable, requestConfiguration *ReportsGetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration)([]byte, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -67,4 +67,8 @@ func (m *ReportsGetConfigurationPolicyNonComplianceReportRequestBuilder) ToPostR
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ReportsGetConfigurationPolicyNonComplianceReportRequestBuilder) WithUrl(rawUrl string)(*ReportsGetConfigurationPolicyNonComplianceReportRequestBuilder) {
+    return NewReportsGetConfigurationPolicyNonComplianceReportRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

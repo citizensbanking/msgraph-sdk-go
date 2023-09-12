@@ -33,7 +33,7 @@ func NewRemoteAssistancePartnersItemBeginOnboardingRequestBuilder(rawUrl string,
 // Post a request to start onboarding.  Must be coupled with the appropriate TeamViewer account information
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-beginonboarding?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-beginonboarding?view=graph-rest-1.0
 func (m *RemoteAssistancePartnersItemBeginOnboardingRequestBuilder) Post(ctx context.Context, requestConfiguration *RemoteAssistancePartnersItemBeginOnboardingRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration);
     if err != nil {
@@ -60,4 +60,8 @@ func (m *RemoteAssistancePartnersItemBeginOnboardingRequestBuilder) ToPostReques
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *RemoteAssistancePartnersItemBeginOnboardingRequestBuilder) WithUrl(rawUrl string)(*RemoteAssistancePartnersItemBeginOnboardingRequestBuilder) {
+    return NewRemoteAssistancePartnersItemBeginOnboardingRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

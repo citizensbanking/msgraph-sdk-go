@@ -33,7 +33,7 @@ func NewReportsGetReportFiltersRequestBuilder(rawUrl string, requestAdapter i2ae
 // Post not yet documented
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getreportfilters?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getreportfilters?view=graph-rest-1.0
 func (m *ReportsGetReportFiltersRequestBuilder) Post(ctx context.Context, body ReportsGetReportFiltersPostRequestBodyable, requestConfiguration *ReportsGetReportFiltersRequestBuilderPostRequestConfiguration)([]byte, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -67,4 +67,8 @@ func (m *ReportsGetReportFiltersRequestBuilder) ToPostRequestInformation(ctx con
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ReportsGetReportFiltersRequestBuilder) WithUrl(rawUrl string)(*ReportsGetReportFiltersRequestBuilder) {
+    return NewReportsGetReportFiltersRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

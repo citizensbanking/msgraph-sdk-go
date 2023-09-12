@@ -34,7 +34,7 @@ func NewCallsItemParticipantsInviteRequestBuilder(rawUrl string, requestAdapter 
 // Post invite participants to the active call. For more information about how to handle operations, see commsOperation.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/participant-invite?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/participant-invite?view=graph-rest-1.0
 func (m *CallsItemParticipantsInviteRequestBuilder) Post(ctx context.Context, body CallsItemParticipantsInvitePostRequestBodyable, requestConfiguration *CallsItemParticipantsInviteRequestBuilderPostRequestConfiguration)(iadcd81124412c61e647227ecfc4449d8bba17de0380ddda76f641a29edf2b242.InviteParticipantsOperationable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -69,4 +69,8 @@ func (m *CallsItemParticipantsInviteRequestBuilder) ToPostRequestInformation(ctx
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *CallsItemParticipantsInviteRequestBuilder) WithUrl(rawUrl string)(*CallsItemParticipantsInviteRequestBuilder) {
+    return NewCallsItemParticipantsInviteRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

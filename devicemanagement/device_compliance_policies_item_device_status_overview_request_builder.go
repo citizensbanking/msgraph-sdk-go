@@ -73,7 +73,7 @@ func (m *DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilder) Delete(
 // Get read properties and relationships of the deviceComplianceDeviceOverview object.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedeviceoverview-get?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedeviceoverview-get?view=graph-rest-1.0
 func (m *DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilder) Get(ctx context.Context, requestConfiguration *DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilderGetRequestConfiguration)(iadcd81124412c61e647227ecfc4449d8bba17de0380ddda76f641a29edf2b242.DeviceComplianceDeviceOverviewable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
@@ -95,7 +95,7 @@ func (m *DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilder) Get(ctx
 // Patch update the properties of a deviceComplianceDeviceOverview object.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedeviceoverview-update?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedeviceoverview-update?view=graph-rest-1.0
 func (m *DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilder) Patch(ctx context.Context, body iadcd81124412c61e647227ecfc4449d8bba17de0380ddda76f641a29edf2b242.DeviceComplianceDeviceOverviewable, requestConfiguration *DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilderPatchRequestConfiguration)(iadcd81124412c61e647227ecfc4449d8bba17de0380ddda76f641a29edf2b242.DeviceComplianceDeviceOverviewable, error) {
     requestInfo, err := m.ToPatchRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -158,4 +158,8 @@ func (m *DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilder) ToPatch
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilder) WithUrl(rawUrl string)(*DeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilder) {
+    return NewDeviceCompliancePoliciesItemDeviceStatusOverviewRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

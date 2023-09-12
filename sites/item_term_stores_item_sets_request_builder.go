@@ -96,7 +96,7 @@ func (m *ItemTermStoresItemSetsRequestBuilder) Get(ctx context.Context, requestC
 // Post create a new set object.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/termstore-set-post?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/termstore-set-post?view=graph-rest-1.0
 func (m *ItemTermStoresItemSetsRequestBuilder) Post(ctx context.Context, body ia3c27b33aa3d3ed80f9de797c48fbb8ed73f13887e301daf51f08450e9a634a3.Setable, requestConfiguration *ItemTermStoresItemSetsRequestBuilderPostRequestConfiguration)(ia3c27b33aa3d3ed80f9de797c48fbb8ed73f13887e301daf51f08450e9a634a3.Setable, error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -147,4 +147,8 @@ func (m *ItemTermStoresItemSetsRequestBuilder) ToPostRequestInformation(ctx cont
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemTermStoresItemSetsRequestBuilder) WithUrl(rawUrl string)(*ItemTermStoresItemSetsRequestBuilder) {
+    return NewItemTermStoresItemSetsRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

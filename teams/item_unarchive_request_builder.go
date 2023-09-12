@@ -33,7 +33,7 @@ func NewItemUnarchiveRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee
 // Post restore an archived team. This restores users' ability to send messages and edit the team, abiding by tenant and team settings. Teams are archived using the archive API. Unarchiving is an async operation. A team is unarchived once the async operation completes successfully, which may occur subsequent to a response from this API.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/team-unarchive?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/team-unarchive?view=graph-rest-1.0
 func (m *ItemUnarchiveRequestBuilder) Post(ctx context.Context, requestConfiguration *ItemUnarchiveRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration);
     if err != nil {
@@ -60,4 +60,8 @@ func (m *ItemUnarchiveRequestBuilder) ToPostRequestInformation(ctx context.Conte
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ItemUnarchiveRequestBuilder) WithUrl(rawUrl string)(*ItemUnarchiveRequestBuilder) {
+    return NewItemUnarchiveRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

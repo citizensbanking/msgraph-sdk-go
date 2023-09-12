@@ -33,7 +33,7 @@ func NewDeviceManagementPartnersItemTerminateRequestBuilder(rawUrl string, reque
 // Post not yet documented
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-terminate?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-terminate?view=graph-rest-1.0
 func (m *DeviceManagementPartnersItemTerminateRequestBuilder) Post(ctx context.Context, requestConfiguration *DeviceManagementPartnersItemTerminateRequestBuilderPostRequestConfiguration)(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration);
     if err != nil {
@@ -60,4 +60,8 @@ func (m *DeviceManagementPartnersItemTerminateRequestBuilder) ToPostRequestInfor
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *DeviceManagementPartnersItemTerminateRequestBuilder) WithUrl(rawUrl string)(*DeviceManagementPartnersItemTerminateRequestBuilder) {
+    return NewDeviceManagementPartnersItemTerminateRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

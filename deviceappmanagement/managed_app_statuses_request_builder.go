@@ -77,7 +77,7 @@ func (m *ManagedAppStatusesRequestBuilder) Count()(*ManagedAppStatusesCountReque
 // Get list properties and relationships of the managedAppStatusRaw objects.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/intune-mam-managedappstatusraw-list?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/intune-mam-managedappstatusraw-list?view=graph-rest-1.0
 func (m *ManagedAppStatusesRequestBuilder) Get(ctx context.Context, requestConfiguration *ManagedAppStatusesRequestBuilderGetRequestConfiguration)(iadcd81124412c61e647227ecfc4449d8bba17de0380ddda76f641a29edf2b242.ManagedAppStatusCollectionResponseable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
@@ -147,4 +147,8 @@ func (m *ManagedAppStatusesRequestBuilder) ToPostRequestInformation(ctx context.
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *ManagedAppStatusesRequestBuilder) WithUrl(rawUrl string)(*ManagedAppStatusesRequestBuilder) {
+    return NewManagedAppStatusesRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }

@@ -50,7 +50,7 @@ func NewLifecycleWorkflowsSettingsRequestBuilder(rawUrl string, requestAdapter i
 // Get read the properties and relationships of a lifecycleManagementSettings object.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-get?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-get?view=graph-rest-1.0
 func (m *LifecycleWorkflowsSettingsRequestBuilder) Get(ctx context.Context, requestConfiguration *LifecycleWorkflowsSettingsRequestBuilderGetRequestConfiguration)(ibf6ed4fc8e373ed2600905053a507c004671ad1749cb4b6b77078a908490c430.LifecycleManagementSettingsable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
@@ -72,7 +72,7 @@ func (m *LifecycleWorkflowsSettingsRequestBuilder) Get(ctx context.Context, requ
 // Patch update the properties of a lifecycleManagementSettings object.
 // [Find more info here]
 // 
-// [Find more info here]: https://docs.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-update?view=graph-rest-1.0
+// [Find more info here]: https://learn.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-update?view=graph-rest-1.0
 func (m *LifecycleWorkflowsSettingsRequestBuilder) Patch(ctx context.Context, body ibf6ed4fc8e373ed2600905053a507c004671ad1749cb4b6b77078a908490c430.LifecycleManagementSettingsable, requestConfiguration *LifecycleWorkflowsSettingsRequestBuilderPatchRequestConfiguration)(ibf6ed4fc8e373ed2600905053a507c004671ad1749cb4b6b77078a908490c430.LifecycleManagementSettingsable, error) {
     requestInfo, err := m.ToPatchRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
@@ -123,4 +123,8 @@ func (m *LifecycleWorkflowsSettingsRequestBuilder) ToPatchRequestInformation(ctx
         requestInfo.AddRequestOptions(requestConfiguration.Options)
     }
     return requestInfo, nil
+}
+// WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+func (m *LifecycleWorkflowsSettingsRequestBuilder) WithUrl(rawUrl string)(*LifecycleWorkflowsSettingsRequestBuilder) {
+    return NewLifecycleWorkflowsSettingsRequestBuilder(rawUrl, m.BaseRequestBuilder.RequestAdapter);
 }
